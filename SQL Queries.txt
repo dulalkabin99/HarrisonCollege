@@ -1,0 +1,50 @@
+insert into Department(id,department_name) values(1,'IT');
+insert into Department(id,department_name) values(2,'Humanities');
+insert into Department(id,department_name) values(3,'Computer Science');
+
+insert into advisor(id,advisor_name,employee_num,password,user_name) values(1,'Ujwal','105','pass','ujwal');
+insert into advisor(id,advisor_name,employee_num,password,user_name) values(2,'Krish','106','pass','krish');
+insert into advisor(id,advisor_name,employee_num,password,user_name) values(3,'Shiva','107','pass','krish');
+
+insert into major(id,major_name,department_id) values(1,'database',1);
+insert into major(id,major_name,department_id) values(2,'arts',2);
+insert into major(id,major_name,department_id) values(3,'Programming',3);
+
+
+insert into instructor(id,instructor_name,employee_num,user_name,password,department_id) values(1,'kabin','100','kabin','pass',1);
+insert into instructor(id,instructor_name,employee_num,user_name,password,department_id) values(2,'dave','101','dave','pass',2);
+insert into instructor(id,instructor_name,employee_num,user_name,password,department_id) values(3,'partik','102','partik','pass',3);
+
+insert into subject(id,subject_name) values(1,'comp101');
+insert into subject(id,subject_name) values(2,'art102');
+insert into subject(id,subject_name) values(3,'java103');
+
+
+insert into course(id,course_name,course_num,course_description,credit,subject_id,major_id) values(1,'computer','201','about computer',4,1,1);
+insert into course(id,course_name,course_num,course_description,credit,subject_id,major_id) values(2,'social','202','about culture',4,2,2);
+insert into course(id,course_name,course_num,course_description,credit,subject_id,major_id) values(3,'java','203','about java language',4,3,3);
+
+
+insert into student(id,student_name,year_entry,student_num,user_name,password,major_id,advisor_id) values(1,'Niva','2015','1001','niva','pass',1,1);
+insert into student(id,student_name,year_entry,student_num,user_name,password,major_id,advisor_id) values(2,'simon','2016','1002','simon','pass',2,2);
+insert into student(id,student_name,year_entry,student_num,user_name,password,major_id,advisor_id) values(3,'sejal','2014','1003','sejal','pass',3,3);
+
+
+insert into classroom(id,building_name,max_capacity,room_num) values(1,'common',78,'A');
+insert into classroom(id,building_name,max_capacity,room_num) values(2,'library',100,'B');
+insert into classroom(id,building_name,max_capacity,room_num) values(3,'Engineering',75,'F');
+
+
+insert into class(id,class_num,day,time,crn,semester,instructor_id,classroom_id,course_id) values(1, '105','Monday', '1-2 p.m','45','fall',1,1,1);
+insert into class(id,class_num,day,time,crn,semester,instructor_id,classroom_id,course_id) values(2,'106','Tuesday','2-3 p.m','78','fall',2,2,2);
+insert into class(id,class_num,day,time,crn,semester,instructor_id,classroom_id,course_id) values(3,'107','Friday','4-5 p.m','55','fall',3,3,3);
+
+insert into grade(id,grade,class_id,student_id) values(1,'A+',1,1);
+insert into grade(id,grade,class_id,student_id) values(2,'B+',2,2);
+insert into grade(id,grade,class_id,student_id) values(3,'A-',3,3);
+
+
+insert into student_class values (1,2);
+
+insert into student_class values (2,3);
+insert into student_class values (3,3);

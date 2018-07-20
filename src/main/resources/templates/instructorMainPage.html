@@ -9,9 +9,11 @@
 </head>
 <body>
 <div class="container">
-    <span class="h3">Welcome </span><span class="h3" th:text="${instructor.instructorName}"></span><br/>
+    <span class="h3">Welcome </span><span class="h3" th:text="${instructor.instructorName}">
 
-    <h3>Current Classes and </h3>
+</span><br/>
+<div class="jumbotron">
+    <h3>Currently Teaching </h3>
     <table class="table">
         <thead>
         <tr>
@@ -34,6 +36,8 @@
         </tr>
         </tbody>
     </table>
+</div>
+  <div th:replace="base :: footer"></div>
 </div>
 
 </body>
