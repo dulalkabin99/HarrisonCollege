@@ -9,35 +9,41 @@
 <body>
 <div class="container">
     <div th:replace="base :: navlinks"></div>
-    <table class="table mt-5">
-        <tr>
-            <td>Current Class:</td>
-        </tr>
-        <tr>
-            <td>classNum </td>
-            <td>day </td>
-            <td>time </td>
-            <td>instructor </td>
-            <td>
-                classroom
-            </td>
-        </tr>
-        <tr>
-            <td><span th:text="${class.classNum}"></span></td>
 
 
-            <td><span th:text="${class.day}"></span></td>
-
-
-            <td><span th:text="${class.time}"></span></td>
-
-
-            <td><span th:text="${class.instructor}"></span></span></td>
-
-
-            <td><span th:text="${class.classroom}"></span></span></td>
-        </tr>
-    </table>
+  <h3>All Available classes</h3>
+  <table>
+    <thead>
+    <tr>
+      <th> CRN </th>
+      <th>Course number</th>
+      <th> days</th>
+      <th> Time</th>
+      <th>Semester</th>
+      <th>Course</th>
+      <th>Subject</th>
+      <th>Credit</th>
+      <th>Instructor</th>
+      <th>Classroom</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="class: ${classes}">
+      <td><span th:text="${class.crn}"></span></td>
+      <td><span th:text="${class.classNum}"></span></td>
+      <td><span th:text="${class.day}"></span></td>
+      <td><span th:text="${class.time}"></span></td>
+      <td><span th:text="${class.semester}"></span></td>
+      <td><span th:text="${class.course.courseName}"></span></td>
+      <td><span th:text="${class.course.subject.subjectName}"></span></td>
+      <td><span th:text="${class.course.credit}"></span></td>
+      <td><span th:text="${class.instructor.instructorName}"></span></td>
+      <td><span th:text="${class.classroom.roomNum}"></span></td>
+      <td><a th:href="@{/register/{id} {(id=${class.id})}}" class="btn btn-lg btn-success">Resister</a></td>
+    </tr>
+    </tbody>
+  </table>
     <div th:replace="base :: footer"></div>
 </div>
 

@@ -35,8 +35,14 @@ public class Class {
     @OneToMany(mappedBy = "aClass", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Grade> grades;
 
-    @ManyToMany(mappedBy = "classes")
-    private Set<Student> students;
+  @ManyToMany
+  @JoinTable(
+    name ="STUDENT_CLASS", joinColumns=@JoinColumn(name="class_id", referencedColumnName = "ID"),
+    inverseJoinColumns = @JoinColumn(name = "student_id", referencedColumnName = "ID"))
+  private Set<Student> students;
+
+  /*  @ManyToMany(mappedBy = "classes")
+    private Set<Student> students;*/
 
     public long getId() {
         return id;

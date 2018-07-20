@@ -7,27 +7,33 @@
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
-    <h2>Current list</h2>
-    <div th:each="instructor : ${instructors}">
-        <table>
-            <thead>
-            <tr>
-                <td>Instructor Name</td>
-                <td>Employee Number</td>
-                <td>User Name</td>
-                <td>Password</td>
+<div th:replace="base :: navlinks"></div>
 
-            </tr>
-            </thead>
+<div class="container jumbotron">
+
+    <h2>Current list</h2>
+  <table>
+  <thead>
+  <tr>
+    <td>Instructor Name</td>&nbsp;&nbsp;&nbsp;
+    <td>Employee Number</td>&nbsp;&nbsp;&nbsp;
+    <td>User Name</td>
+    <!--<td>Password</td>-->
+
+  </tr>
+  </thead>
+    <div th:each="i : ${ins}">
+<div></div>
             <tbody>
-            <td><h4 th:text="${instructor.instructorName}"></h4></td>
-            <td><h4 th:text="${instructor.employeeNum}"></h4></td>
-            <td><h4 th:text="${instructor.userName}"></h4></td>
-            <td><h4 th:text="${instructor.password}"></h4></td>
+            <td><h6 th:text="${i.instructorName}"></h6></td>
+            <td><h6 th:text="${i.employeeNum}"></h6></td>
+            <td><h6 th:text="${i.userName}"></h6></td>
+           <!-- <td><h4 th:text="${instructor.password}"></h4></td>-->
 
             </tbody>
         </table>
     </div>
+  </div>
 
 </body>
 </html>

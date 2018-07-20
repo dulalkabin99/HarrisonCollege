@@ -7,12 +7,12 @@
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
-
+<div class="container jumbotron">
     <table>
         <td><h4 th:text="${student.studentName}"></h4></td>
-        <td><h4 th:text="${student.studentNum}"></h4></td>
-        <td><h4 th:text="${student.yearEntry}"></h4></td>
+        <td><h4  th:text="${student.studentNum}"></h4></td>
         <td><h4 th:text="${student.major.majorName}"></h4></td>
+      <td><h4 th:text="${student.yearEntry}"></h4></td>
     </table>
     <h2>Current Class list</h2>
     <div>
@@ -33,13 +33,16 @@
                     <td><span th:text="${class.course.credit}"></span></td>
                     <td><span th:text="${class.instructor.instructorName}"></span></td>
                     <td><span th:text="${class.classroom.roomNum}"></span></td>
-                    <td><a th:href="@{/dropClass/{id} (id=${class.id})}">Drop</a></td>
+
+                    <td><a th:href="@{/dropClass/{id} {(id=${student.id})}}" class="btn btn-lg btn-danger">Drop</a></td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <a th:href="@{/showSchedule/{id} (id=${student.id})}">Show Schedule</a>
-    <a th:href="@{/addClassed/{id} (id=${student.id})}">Add more class</a>
-    <a th:href="@{/showTranscript/{id} (id=${student.id})}">Transcript</a>
+<hr><hr>
+    <a th:href="@{/showschedule/{id} (id=${student.id})}" class="btn btn-lg btn-success">Show Schedule &nbsp</a>
+    <a href="/viewclass" class="btn btn-lg btn-success">Register classes</a>
+    <a th:href="@{/showTranscript/{id} (id=${student.id})}" class="btn btn-lg btn-success">Transcript</a>
+</div>
 </body>
 </html>

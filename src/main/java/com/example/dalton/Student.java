@@ -32,11 +32,14 @@ public class Student  {
         this.password = password;
     }
 
-    @ManyToMany
+
+  @ManyToMany(mappedBy = "students")
+  private Set<Class> classes;
+  /*  @ManyToMany
     @JoinTable(
-            name ="STUDENT_CLASS", joinColumns=@JoinColumn(name="STUDENT_ID", referencedColumnName = "ID"),
+      name ="STUDENT_CLASS", joinColumns=@JoinColumn(name="STUDENT_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "CLASS_ID", referencedColumnName = "ID"))
-    private Set<Class> classes;
+    private Set<Class> classes;*/
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "major_id")

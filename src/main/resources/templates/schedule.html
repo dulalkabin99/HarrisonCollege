@@ -7,6 +7,11 @@
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
+  <div th:replace="base :: navlinks"></div>
+  <div class="jumbotron">
+<h2 >Schedule For [[${st.studentName}]]</h2>
+
     <table>
         <thead>
             <tr>
@@ -19,7 +24,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="class : ${classes}">
+            <tr th:each="class : ${st.classes}">
                 <td><span th:text="${class.crn}"></span></td>
                 <td><span th:text="${class.course.courseName}"></span></td>
                 <td><span th:text="${class.day}"></span></td>
@@ -29,6 +34,9 @@
             </tr>
         </tbody>
     </table>
+</div>
+  <div th:replace="base :: footer"></div>
+</div>
 
 </body>
 </html>

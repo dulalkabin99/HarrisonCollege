@@ -10,19 +10,38 @@
 <body>
 <div class="container">
   <div th:replace="base :: navlinks"></div>
-    <h2 class="p-4">Admin Page</h2>
+
+  <h2>Welcome Admin,</h2>
+
+  <div class="bg-light p-5" align="center">
+    <h3 class="text-center p-3">All Available Links</h3><hr>
+    <a href="/addroom" class="btn btn-lg btn-success">Add ClassRoom</a>
+    <a href="/adddepartment" class="btn btn-lg btn-success">Add Department</a>
+    <a href="/addmajor" class="btn btn-lg btn-success">Add Major</a>
+    <a href="/addsubject" class="btn btn-lg btn-success">Add Subject</a>
+    <a href="/addcourse" class="btn btn-lg btn-success">Add Course</a>
+    <a href="/addins" class="btn btn-lg btn-success">Add Instructor</a><br><hr>
+    <a href="/addclass" class="btn btn-lg btn-success">Add a Class</a>
+    <a href="/addadvisor" class="btn btn-lg btn-success">Add an Advisor</a>
+    <a href="/showInstructorlist" class="btn btn-lg btn-success">Instructor List</a>
+
+    <hr>
+
+
+
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Year of Entry</td>
+      <td>Student Number</td>
+      <td>User Name</td>
+      <td>Password</td>
+      <td></td>
+    </tr>
+    </thead>
     <div th:each="student : ${students}" class="mt-3 p-4">
-        <table class="table">
-            <thead>
-            <tr>
-                <td>Name</td>
-                <td>Year of Entry</td>
-                <td>Student Number</td>
-                <td>User Name</td>
-                <td>Password</td>
-                <td></td>
-            </tr>
-            </thead>
+
             <tbody>
             <td><h4 th:text="${student.studentName}"></h4></td>
             <td><h4 th:text="${student.yearEntry}"></h4></td>
@@ -31,10 +50,13 @@
             <td><h4 th:text="${student.password}"></h4></td>
             <td><a th:href="@{/updaterole/{id} (id=${student.id})}" class="btn btn-sm btn-secondary">change role</a></td>
             </tbody>
+    </div>
         </table>
     </div>
-    <a href="/showInstructorlist">Instructor List</a>
+</div>
+
     <div th:replace="base :: footer"></div>
+</div>
 </div>
 
 </body>
