@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dalton</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div th:replace="base :: navlinks"></div>
+
+  <div class="bg-light p-5" align="center">
+    <h3 class="text-center p-3">All Available Links</h3>
+    <a href="/addroom" class="btn btn-lg btn-success">Add ClassRoom</a>
+    <a href="/adddepartment" class="btn btn-lg btn-success">Add Department</a>
+    <a href="/addmajor" class="btn btn-lg btn-success">Add Major</a>
+    <a href="/addsubject" class="btn btn-lg btn-success">Add Subject</a>
+    <a href="/addcourse" class="btn btn-lg btn-success">Add Course</a>
+    <a href="/addins" class="btn btn-lg btn-success">Add Instructor</a>
+    <a href="/addclass" class="btn btn-lg btn-success">Add a Class</a>
+    <a href="/addadvisor" class="btn btn-lg btn-success">Add an Advisor</a>
+
+
+  </div>
+  <div th:replace="base :: footer"></div>
+</div>
+</body>
+</html>

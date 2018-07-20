@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div th:replace="base :: navlinks"></div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 mt-2">
+        <form method="post" action="/addInstructor" th:object="${instructor}" class="form-group">
+            <input type="hidden" th:field="*{id}">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 mt-2">
+                    Instructor Name: <input type="text" th:field="*{instructorName}" class="form-control"><br/>
+                </div>
+                <div class="col-sm-12 col-md-6 mt-2">
+                    Username: <input type="text" th:field="*{userName}" class="form-control"><br/>
+                </div>
+                <div class="col-sm-12 col-md-6 mt-2">
+                    Password: <input type="text" th:field="*{password}" class="form-control"><br/>
+                </div>
+                <div class="col-sm-12 col-md-12 mt-2">
+                    <label for="departmentInput"><strong>Department</strong></label>
+                    <select class="form-control" id="departmentInput" th:field="*{department}" olass="form-control">
+
+                        <option th:each="department : ${departments}"
+                                th:value="${department.id}"
+                                th:utext="${department.departmentName}"/>
+                    </select>
+                </div>
+            </div>
+
+            <div align="center">
+                <input type="submit" class="btn-lg btn btn-success mt-4" value="Click"/>
+            </div>
+
+
+
+        </form>
+    </div>
+
+
+</div>
+
+</body>
+</html>

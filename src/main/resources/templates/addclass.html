@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dalton</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div th:replace="base :: navlinks"></div>
+  <div class="row p-5">
+    <div class="col-sm-0 col-md-2"></div>
+    <div class="col-sm-12 col-md-8">
+      <form method="post" action="/postclass" th:object="${aclass}">
+        <div class="form-group"><input type="hidden" th:field="*{id}"></div>
+
+        <div class="form-group"><strong>Enter Class Number </strong>
+          <input type="text" placeholder="Enter Class Name" th:field="*{classNum}" class="form-control">
+          <span th:if="${#fields.hasErrors('classNum')}" th:errors="*{classNum}"></span>
+        </div>
+
+        <div class="form-group"><strong>Days  </strong>
+          <input type="text" placeholder="Enter days, eg. MW for MON-WED" th:field="*{day}" class="form-control">
+          <span th:if="${#fields.hasErrors('day')}" th:errors="*{day}"></span>
+        </div>
+
+        <div class="form-group"><strong>Time  </strong>
+          <input type="text" placeholder="Enter time, eg. 10:00-13:00" th:field="*{time}" class="form-control">
+          <span th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></span>
+        </div>
+
+        <div class="form-group"><strong>CRN Number </strong>
+          <input type="text" placeholder="Enter CRN Number" th:field="*{crn}" class="form-control">
+          <span th:if="${#fields.hasErrors('crn')}" th:errors="*{crn}"></span>
+        </div>
+
+
+
+        <div class="form-group"><strong>Semester</strong>
+          <select th:field="*{semester}" class="form-control input-md">
+            <option value="Winter 2018">Winter 2018</option>
+            <option value="Spring 2018">Spring 2018</option>
+            <option value="Summer 2018">Summer 2018</option>
+            <option value="Fall 2018">Fall 2018</option>
+          </select>
+        </div>
+
+        <div class="form-group"><strong> Course </strong>
+          <select th:field="*{course}" class="form-control input-md">
+            <option value="">Select Course</option>
+            <table>
+              <tr th:each="option: ${course}">
+                <option th:value="${option.id}">[[${option.courseName}]]</option>
+              </tr>
+            </table>
+          </select>
+        </div>
+
+
+        <div class="form-group"><strong> Instructor </strong>
+          <select th:field="*{instructor}" class="form-control input-md">
+            <option value="">Select Instructor</option>
+            <table>
+              <tr th:each="i: ${ins}">
+                <option th:value="${i.id}">[[${i.instructorName}]]</option>
+              </tr>
+            </table>
+          </select>
+        </div>
+
+        <div class="form-group"><strong> ClassRoom </strong>
+          <select th:field="*{classroom}" class="form-control input-md">
+            <option value="">Select available classroom</option>
+            <table>
+              <tr th:each="r: ${room}">
+                <option th:value="${r.id}">[[${r.roomNum}]]</option>
+              </tr>
+            </table>
+          </select>
+        </div>
+
+
+
+        <div class="form-group" align="center">
+          <input type="submit" class="btn btn-success" value="Submit"/>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-sm-0 col-md-2"></div>
+  </div>
+
+
+  <div th:replace="base :: footer"></div>
+</div>
+</body>
+</html>

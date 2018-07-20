@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="base :: navlinks"></div>
+    <div class="row p-5 bg-light">
+        <!---->
+        <div class="col-sm-0 col-md-3"></div>
+        <!---->
+        <div class=" col-sm-12 col-md-6">
+            <form method="post" action="/loginsystem" class="form-group">
+                <div class="form-group">
+                    <strong>UserName: </strong>
+                    <input type="text" name="username" placeholder="Enter your username" class="form-control">
+
+                </div>
+                <div class="form-group"><strong>Password: </strong>
+                    <input type="password" name="password" placeholder="Enter year of Entry:" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="roleInput"><strong>Choose your Role</strong></label>
+                    <select class="form-control" id="roleInput" name="role">
+                        <option value="student">Student</option>
+                        <option value="instructor">Instructor</option>
+                        <option value="admin">Administrator</option>
+                      <option value="advisor">Advisor</option>
+
+                    </select>
+                </div>
+                <div align="center">
+                    <input type="submit" class="btn btn-lg btn-success"/>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="col-sm-0 col-md-3"></div>
+    </div>
+    <div th:replace="base :: footer"></div>
+</div>
+</body>
+</html>

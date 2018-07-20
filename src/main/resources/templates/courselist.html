@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+
+Course list:<br/>
+
+<!--courseName: <br>-->
+
+Search:
+
+<!--<div class="">-->
+    <!--<form th:action="@{/search}" method="post">-->
+    <!--<div> <span class=""></span>  </div>-->
+    <!--<label>Course name: </label><input type="text" name="search"/>-->
+    <!--<input type="submit" text="Submit"/>-->
+    <!--</form>-->
+    <!--<p/>-->
+    <!--<form th:action="@{/searchbetween}" method="post">-->
+    <!--<div>Enter <span class="">credits</span>  </div>-->
+    <!--<label>Min: </label><input type="text" name="min"/>-->
+    <!--<label>Max: </label><input type="text" name="max"/>-->
+    <!--<input type="submit" text="Submit"/>-->
+    <!--</form>-->
+    <!--</div>-->
+
+    <!--<table >-->
+    <!--<tr>-->
+        <!--<td>courseName : </td>-->
+        <!--<td><span th:text="${.courseName}"></span></td>-->
+    <!--</tr>-->
+    <!--<a th:href="@{/detail/{id}(id=${.id})}">Detail</a>-->
+
+<!--</table>-->
+
+<!--<span th:text="${course.courseName}"></span>-->
+
+<!--<a th:href="@{/detail/{id} (id=${course.id})}">Details</a>-->
+
+courseName:<br/>
+<div th:each="course : ${courses}">
+    <span th:text="${course.courseName}"></span>
+    <a th:href="@{/detailCourse/{id} (id=${course.id})}">Details</a>-
+
+    <a th:href="{/detail}">Detail</a>
+</div>
+
+</body>
+</html>

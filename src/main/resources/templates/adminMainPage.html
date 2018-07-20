@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Admin Main Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div th:replace="base :: navlinks"></div>
+    <h2 class="p-4">Admin Page</h2>
+    <div th:each="student : ${students}" class="mt-3 p-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Year of Entry</td>
+                <td>Student Number</td>
+                <td>User Name</td>
+                <td>Password</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <td><h4 th:text="${student.studentName}"></h4></td>
+            <td><h4 th:text="${student.yearEntry}"></h4></td>
+            <td><h4 th:text="${student.studentNum}"></h4></td>
+            <td><h4 th:text="${student.userName}"></h4></td>
+            <td><h4 th:text="${student.password}"></h4></td>
+            <td><a th:href="@{/updaterole/{id} (id=${student.id})}" class="btn btn-sm btn-secondary">change role</a></td>
+            </tbody>
+        </table>
+    </div>
+    <a href="/showInstructorlist">Instructor List</a>
+    <div th:replace="base :: footer"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dalton</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div th:replace="base :: navlinks"></div>
+  <div class="row p-5">
+    <div class="col-sm-0 col-md-2"></div>
+    <div class="col-sm-12 col-md-8">
+      <form method="post" action="/postins" th:object="${ins}">
+        <div class="form-group"><input type="hidden" th:field="*{id}"></div>
+
+        <div class="form-group"><strong>Name </strong>
+          <input type="text" placeholder="Entername" th:field="*{instructorName}" class="form-control">
+          <span th:if="${#fields.hasErrors('instructorName')}" th:errors="*{instructorName}"></span>
+        </div>
+        <div class="form-group"><strong>Employee Number </strong>
+          <input type="text" placeholder="Employee Number " th:field="*{employeeNum}" class="form-control">
+          <span th:if="${#fields.hasErrors('employeeNum')}" th:errors="*{employeeNum}"></span>
+        </div>
+        <div class="form-group"><strong>User Name: </strong>
+          <input type="text" placeholder="Enter username you want: " th:field="*{userName}" class="form-control">
+          <span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span>
+        </div>
+        <div class="form-group"><strong>Password: </strong>
+          <input type="password" placeholder="Enter year password " th:field="*{password}" class="form-control">
+          <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        </div>
+
+        <div class="form-group">
+          <label><strong>Choose Department</strong></label>
+          <select th:field="*{department}" class="form-control input-md">
+            <table>
+              <tr th:each="option: ${options}">
+                <option th:value="${option.id}">[[${option.departmentName}]]</option>
+              </tr>
+            </table>
+          </select>
+        </div>
+        <div class="form-group" align="center">
+          <input type="submit" class="btn btn-success" value="Submit"/>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-sm-0 col-md-2"></div>
+  </div>
+
+
+  <div th:replace="base :: footer"></div>
+</div>
+</body>
+</html>

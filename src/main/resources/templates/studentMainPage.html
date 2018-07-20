@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+
+    <table>
+        <td><h4 th:text="${student.studentName}"></h4></td>
+        <td><h4 th:text="${student.studentNum}"></h4></td>
+        <td><h4 th:text="${student.yearEntry}"></h4></td>
+        <td><h4 th:text="${student.major.majorName}"></h4></td>
+    </table>
+    <h2>Current Class list</h2>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Subject</th>
+                    <th>Credit</th>
+                    <th>Instructor</th>
+                    <th>Classroom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="class: ${classes}">
+                    <td><span th:text="${class.course.courseName}"></span></td>
+                    <td><span th:text="${class.course.subject.subjectName}"></span></td>
+                    <td><span th:text="${class.course.credit}"></span></td>
+                    <td><span th:text="${class.instructor.instructorName}"></span></td>
+                    <td><span th:text="${class.classroom.roomNum}"></span></td>
+                    <td><a th:href="@{/dropClass/{id} (id=${class.id})}">Drop</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="@{/showSchedule/{id} (id=${student.id})}">Show Schedule</a>
+    <a th:href="@{/addClassed/{id} (id=${student.id})}">Add more class</a>
+    <a th:href="@{/showTranscript/{id} (id=${student.id})}">Transcript</a>
+</body>
+</html>
